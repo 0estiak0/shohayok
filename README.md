@@ -38,7 +38,7 @@ DB_PASSWORD=
 5. Add your Google Maps key (recommended) in `.env`:
 
 ```env
-GOOGLE_MAPS_API_KEY=YOUR_NEW_RESTRICTED_KEY
+
 ```
 
 Do not commit a production API key to Git. Restrict the key to your website domains and only the APIs you need.
@@ -65,9 +65,7 @@ Open `http://127.0.0.1:8000`.
 
 ## Demo accounts after seeding
 
-- Admin: `admin@shohayok.test` / `password`
-- Provider: `provider@shohayok.test` / `password`
-- User: `user@shohayok.test` / `password`
+
 
 Change these passwords before production deployment.
 
