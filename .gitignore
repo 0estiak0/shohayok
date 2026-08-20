@@ -1,0 +1,13 @@
+/vendor
+/node_modules
+/public/build
+/public/storage
+.env
+.phpunit.result.cache
+/storage/*.key
+/bootstrap/cache/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+/storage/app/public/avatars/*

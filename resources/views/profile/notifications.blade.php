@@ -1,0 +1,4 @@
+@extends('layouts.app', ['title' => 'Notifications — Shohayok'])
+@section('content')
+<div class="container-fluid"><div class="row">@include('profile.partials.sidebar')<main class="col-lg-10 dashboard-main p-4 p-xl-5"><h2 class="fw-bold">Notifications</h2><p class="text-secondary mb-4">Your latest account and booking updates.</p><div class="card-soft p-4">@forelse($notifications as $notification)<div class="border-bottom py-3"><b>{{ $notification->data['title'] ?? 'Notification' }}</b><div>{{ $notification->data['message'] ?? 'You have a new notification.' }}</div><small class="text-secondary">{{ $notification->created_at->diffForHumans() }}</small></div>@empty<div class="text-center text-secondary py-5">No notifications yet.</div>@endforelse</div><div class="mt-3">{{ $notifications->links() }}</div></main></div></div>
+@endsection

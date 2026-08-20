@@ -1,0 +1,7 @@
+@extends('layouts.app', ['title' => 'Chat with ' . $user->name . ' — Shohayok'])
+@section('content')
+<div class="container-fluid"><div class="row">@include('admin.partials.sidebar')
+<main class="col-lg-10 dashboard-main p-4 p-xl-5"><div class="d-flex justify-content-between mb-4"><div><h2 class="fw-bold">{{ $user->name }}</h2><div class="text-secondary">{{ $user->email }} · {{ ucfirst($user->role) }}</div></div><a class="btn btn-outline-primary align-self-start" href="{{ route('admin.messages') }}">← Inbox</a></div>
+<div class="card-soft p-4"><div style="min-height:350px;max-height:550px;overflow:auto">@forelse($messages as $message)<div class="d-flex {{ $message->is_from_admin ? 'justify-content-end' : 'justify-content-start' }} mb-3"><div class="p-3 rounded-4 {{ $message->is_from_admin ? 'bg-primary text-white' : 'bg-light' }}" style="max-width:75%"><div class="small fw-semibold">{{ $message->is_from_admin ? 'Admin' : $user->name }}</div>{{ $message->message }}<div class="small opacity-75 mt-1">{{ $message->created_at->format('d M Y, h:i A') }}</div></div></div>@empty<div class="text-center text-secondary py-5">No messages yet.</div>@endforelse</div><form method="post" action="{{ route('admin.messages.reply', $user) }}" class="d-flex gap-2 border-top pt-3">@csrf<textarea class="form-control" rows="2" name="message" required maxlength="3000" placeholder="Write a reply..."></textarea><button class="btn btn-primary px-4">Reply</button></form></div>
+</main></div></div>
+@endsection
